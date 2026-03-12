@@ -1,0 +1,399 @@
+.security-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% -18%, color-mix(in srgb, var(--accent-color), transparent 86%), transparent 44%),
+    radial-gradient(circle at 96% 0%, color-mix(in srgb, var(--accent-color), transparent 90%), transparent 52%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--background-color), transparent 0%),
+      color-mix(in srgb, var(--surface-color), transparent 8%)),
+    var(--background-color);
+}
+
+.security-page .container {
+  max-width: 1140px;
+}
+
+.security-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  background: color-mix(in srgb, var(--surface-color), transparent 18%);
+  backdrop-filter: blur(12px);
+}
+
+.brand-overline {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent-color), var(--default-color) 18%);
+}
+
+.security-header h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.security-header .text-muted {
+  color: color-mix(in srgb, var(--default-color), transparent 38%) !important;
+}
+
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 58%);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.hero-copy {
+  display: grid;
+  place-items: center;
+}
+
+.hero-copy-inner {
+  width: 100%;
+  border-radius: 24px;
+  padding: 1.35rem 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  background:
+    linear-gradient(145deg,
+      color-mix(in srgb, var(--surface-color), transparent 6%),
+      color-mix(in srgb, var(--surface-color), transparent 0%));
+}
+
+.hero-copy h2 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.45rem, 2.7vw, 2rem);
+  line-height: 1.15;
+}
+
+.hero-copy p {
+  max-width: 850px;
+  color: color-mix(in srgb, var(--default-color), transparent 24%);
+}
+
+.security-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 91%);
+  background:
+    linear-gradient(150deg,
+      color-mix(in srgb, var(--surface-color), transparent 5%),
+      color-mix(in srgb, var(--surface-color), transparent 0%));
+  box-shadow:
+    0 24px 52px color-mix(in srgb, var(--contrast-color), transparent 90%),
+    inset 0 1px 0 color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.security-panel::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -95px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      color-mix(in srgb, var(--accent-color), transparent 82%),
+      transparent 70%);
+  pointer-events: none;
+}
+
+.panel-title {
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+}
+
+.panel-subtitle {
+  position: relative;
+  max-width: 820px;
+  color: color-mix(in srgb, var(--default-color), transparent 28%);
+}
+
+.security-panel .form-label {
+  margin-bottom: 0.45rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+}
+
+.security-panel .form-control {
+  min-height: 50px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 84%);
+  background: color-mix(in srgb, var(--surface-color), transparent 14%);
+  color: var(--default-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.security-panel .form-control::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 58%);
+}
+
+.security-panel .form-control:focus {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 36%);
+  box-shadow: 0 0 0 0.24rem color-mix(in srgb, var(--accent-color), transparent 84%);
+  background: color-mix(in srgb, var(--surface-color), transparent 8%);
+  color: var(--default-color);
+}
+
+.security-panel .form-check-input {
+  border-color: color-mix(in srgb, var(--default-color), transparent 68%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 8%);
+}
+
+.security-panel .form-check-input:checked {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.security-panel .form-check-label {
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+}
+
+.btn-accent {
+  min-height: 50px;
+  border: none;
+  border-radius: 14px;
+  padding: 0.65rem 1.35rem;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  color: var(--contrast-color);
+  background: linear-gradient(140deg,
+      var(--accent-color),
+      color-mix(in srgb, var(--accent-color), var(--default-color) 20%));
+  box-shadow: 0 18px 34px color-mix(in srgb, var(--accent-color), transparent 78%);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, filter 0.24s ease;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  box-shadow: 0 24px 40px color-mix(in srgb, var(--accent-color), transparent 74%);
+  filter: saturate(112%);
+}
+
+.btn-accent:disabled {
+  transform: none;
+  opacity: 0.72;
+  box-shadow: none;
+}
+
+.scan-meta {
+  min-height: 1.65rem;
+  padding-top: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 26%);
+}
+
+.results-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.results-head h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+.results-head p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.security-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  border-radius: 18px;
+  padding: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 91%);
+  background:
+    linear-gradient(162deg,
+      color-mix(in srgb, var(--surface-color), transparent 7%),
+      color-mix(in srgb, var(--surface-color), transparent 1%));
+  box-shadow:
+    0 16px 30px color-mix(in srgb, var(--contrast-color), transparent 92%),
+    inset 0 1px 0 color-mix(in srgb, var(--default-color), transparent 95%);
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.security-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--accent-color), transparent 32%),
+      color-mix(in srgb, var(--accent-color), transparent 72%));
+}
+
+.security-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 67%);
+  box-shadow: 0 22px 38px color-mix(in srgb, var(--contrast-color), transparent 89%);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-head h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-head i {
+  color: color-mix(in srgb, var(--accent-color), var(--default-color) 12%);
+}
+
+.card-text {
+  margin-bottom: 0.82rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--default-color), transparent 21%);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.status-neutral {
+  color: color-mix(in srgb, var(--default-color), transparent 22%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 82%);
+  background: color-mix(in srgb, var(--default-color), transparent 94%);
+}
+
+.status-pass {
+  color: color-mix(in srgb, var(--accent-color), var(--default-color) 10%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 72%);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.status-warn {
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 74%);
+  background: color-mix(in srgb, var(--default-color), transparent 89%);
+}
+
+.status-fail {
+  color: color-mix(in srgb, var(--default-color), transparent 12%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 69%);
+  background: color-mix(in srgb, var(--default-color), transparent 84%);
+}
+
+.result-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.result-list li {
+  position: relative;
+  padding: 0.5rem 0.68rem 0.5rem 1rem;
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  background: color-mix(in srgb, var(--surface-color), transparent 2%);
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 16%);
+}
+
+.result-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: color-mix(in srgb, var(--accent-color), var(--default-color) 14%);
+}
+
+@media (max-width: 991px) {
+  .security-header {
+    position: static;
+  }
+
+  .hero-copy-inner,
+  .security-panel {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .security-header .container {
+    padding-top: 1.15rem !important;
+    padding-bottom: 1.15rem !important;
+  }
+
+  .hero-copy-inner,
+  .security-panel,
+  .security-card {
+    border-radius: 14px;
+  }
+
+  .security-panel,
+  .security-card {
+    padding: 0.95rem;
+  }
+
+  .card-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .results-head {
+    align-items: flex-start;
+  }
+
+  .btn-accent {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-copy-inner {
+    padding: 1.7rem;
+  }
+
+  .security-panel {
+    padding: 1.85rem;
+  }
+
+  .security-card {
+    padding: 1.2rem;
+  }
+}

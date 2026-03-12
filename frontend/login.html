@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SecureScan - Connexion</title>
+  <link href="../assets/img/logoprojet.png" rel="icon">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .auth-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(11, 23, 46, 0.96), rgba(16, 29, 58, 0.92));
+    }
+
+    .auth-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border-radius: 18px;
+      color: #ffffff;
+    }
+
+    .auth-card .form-control {
+      min-height: 48px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="auth-shell">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="auth-card p-4 p-lg-5">
+            <h1 class="h4 mb-3">Connexion</h1>
+            <p class="text-white-50 mb-4">Connectez-vous pour lancer les analyses SecureScan.</p>
+
+            <form id="login-form" class="d-grid gap-3">
+              <div>
+                <label class="form-label" for="login-email">Email</label>
+                <input id="login-email" type="email" class="form-control" required>
+              </div>
+              <div>
+                <label class="form-label" for="login-password">Mot de passe</label>
+                <input id="login-password" type="password" class="form-control" required>
+              </div>
+              <button class="btn btn-primary" type="submit">Se connecter</button>
+              <p id="login-error" class="text-warning mb-0"></p>
+            </form>
+            <div class="mt-4">
+              <span class="text-white-50">Pas encore de compte ?</span>
+              <a class="text-white" href="register.html">Créer un compte</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/auth.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById("login-form");
+      const errorEl = document.getElementById("login-error");
+      const apiBase = window.SECURESCAN_API_BASE
+        || (window.location.protocol === "file:" ? "http://localhost:3000" : (window.location.port === "3000" ? "" : "http://localhost:3000"));
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value;
+
+        try {
+          const response = await fetch(`${apiBase}/api/auth/login`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const contentType = response.headers.get("content-type") || "";
+          const isJson = contentType.includes("application/json");
+          const data = isJson ? await response.json() : null;
+          const fallbackText = isJson ? "" : await response.text();
+
+          if (!response.ok) {
+            const message = data?.error || (fallbackText ? "Réponse serveur non valide" : "Connexion échouée");
+            throw new Error(message);
+          }
+
+          window.securescanAuth.setToken(data.token);
+          window.securescanAuth.setUserEmail(data.user?.email || "");
+          window.location.href = "index.html";
+        } catch (error) {
+          errorEl.textContent = error instanceof Error
+            ? error.message
+            : "Connexion échouée.";
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
