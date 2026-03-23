@@ -1,0 +1,27 @@
+services:
+  securescan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: securescan-app
+
+    ports:
+      - "3000:3000"
+
+    env_file:
+      - .env
+
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # optionnel si tu veux un fallback si JWT_SECRET n'existe pas dans .env
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+
+    volumes:
+      - securescan_data:/data
+
+    restart: unless-stopped
+
+volumes:
+  securescan_data:
