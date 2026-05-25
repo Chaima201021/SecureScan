@@ -68,7 +68,7 @@
       const form = document.getElementById("register-form");
       const errorEl = document.getElementById("register-error");
       const apiBase = window.SECURESCAN_API_BASE
-        || (window.location.protocol === "file:" ? "http://localhost:3000" : (window.location.port === "3000" ? "" : "http://localhost:3000"));
+        || (window.location.protocol === "file:" ? "/api/register" : (window.location.port === "3000" ? "" : "/api/register"));
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
