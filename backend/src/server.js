@@ -218,7 +218,7 @@ initDb()
   .then((database) => {
     db = database;
     app.listen(port, () => {
-      console.log(`SecureScan backend running on http://localhost:${port}`);
+      console.log(`SecureScan backend running on http://scansecurebycc.me (proxied via nginx)`);
     });
   })
   .catch((error) => {

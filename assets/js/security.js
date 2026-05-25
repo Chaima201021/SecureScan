@@ -10,7 +10,7 @@
   const scanMeta = document.getElementById("scan-meta");
   const scanAllCheckbox = document.getElementById("scan-all");
   const apiBase = window.SECURESCAN_API_BASE
-    || (window.location.protocol === "file:" ? "http://localhost:3000" : (window.location.port === "3000" ? "" : "http://localhost:3000"));
+    || (window.location.protocol === "file:" ? "https://scansecurebycc.me" : (window.location.hostname === "localhost" ? "https://scansecurebycc.me" : ""));
 
   const toggleConfig = [
     { checkboxId: "all-ports", inputId: "ports" },
@@ -141,7 +141,7 @@
         throw new Error("Timeout: le scan a pris trop de temps.");
       }
       if (error instanceof TypeError) {
-        throw new Error("Impossible de joindre le backend (http://localhost:3000). Vérifiez que le serveur est démarré.");
+        throw new Error("Impossible de joindre le backend (https://scansecurebycc.me). Vérifiez que le serveur est démarré.");
       }
       throw error;
     } finally {

@@ -2,7 +2,7 @@
   "use strict";
 
   const apiBase = window.SECURESCAN_API_BASE
-    || (window.location.protocol === "file:" ? "http://localhost:3000" : (window.location.port === "3000" ? "" : "http://localhost:3000"));
+    || (window.location.protocol === "file:" ? "https://scansecurebycc.me" : (window.location.hostname === "localhost" ? "https://scansecurebycc.me" : ""));
 
   function getToken() {
     return localStorage.getItem("securescan_token");
