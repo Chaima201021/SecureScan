@@ -112,7 +112,7 @@
     const token = window.securescanAuth ? window.securescanAuth.getToken() : null;
 
     try {
-      const response = await fetch(`${apiBase}/api/scan`, {
+      const response = await fetch(`/api/scan`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -229,7 +229,7 @@
     historyEmpty.textContent = "Chargement de l'historique...";
 
     try {
-      const response = await fetch(`${apiBase}/api/scans?limit=10`, {
+      const response = await fetch(`/api/scans?limit=10`, {
         headers: {
           Authorization: `Bearer ${window.securescanAuth.getToken()}`,
         },
@@ -279,7 +279,7 @@
           btn.disabled = true;
           btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
           try {
-            const response = await fetch(`${apiBase}/api/scans/${scanId}/report`, {
+            const response = await fetch(`/api/scans/${scanId}/report`, {
               headers: { Authorization: `Bearer ${window.securescanAuth.getToken()}` },
             });
             if (!response.ok) throw new Error("Erreur téléchargement");

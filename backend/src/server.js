@@ -18,7 +18,10 @@ let db;
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running on port ${port}`);
 });
-app.use(cors());
+app.use(cors({
+  origin: "https://scansecurebycc.me",
+  credentials: true
+}));
 app.use(express.json({ limit: "1mb" }));
 
 app.use("/assets", express.static(path.join(workspaceRoot, "assets")));

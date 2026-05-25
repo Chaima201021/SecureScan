@@ -30,7 +30,7 @@
       return null;
     }
 
-    const response = await fetch(`${apiBase}/api/auth/me`, {
+    const response = await fetch(`/api/auth/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

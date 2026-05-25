@@ -101,7 +101,7 @@
     downloadButton.innerHTML = '<i class="bi bi-hourglass-split me-1"></i>Génération...';
 
     try {
-      const response = await fetch(`${apiBase}/api/report`, {
+      const response = await fetch(`/api/report`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
